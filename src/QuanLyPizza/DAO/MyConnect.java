@@ -1,19 +1,19 @@
+
 package QuanLyPizza.DAO;
 
 import MyCustom.MyDialog;
-import com.mysql.jdbc.Driver;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
 public class MyConnect {
 
     public static Connection conn = null;
-    private String severName;
+    private String serverName;
     private String dbName;
     private String userName;
     private String password;
@@ -21,23 +21,27 @@ public class MyConnect {
     public MyConnect() {
         docFileText();
 
-        String strConnect = "jdbc:mysql://" + severName + "/" + dbName + "?useUnicode=true&characterEncoding=utf-8";
+        String strConnect = "jdbc:sqlserver://" + serverName + ";databaseName=" + dbName + ";encrypt=true;trustServerCertificate=true";
         Properties pro = new Properties();
         pro.put("user", userName);
         pro.put("password", password);
         try {
-            com.mysql.jdbc.Driver driver = new Driver();
-            conn = driver.connect(strConnect, pro);
+            // Load SQL Server JDBC Driver
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            // Establish connection
+            conn = DriverManager.getConnection(strConnect, pro);
+        } catch (ClassNotFoundException ex) {
+            new MyDialog("Không tìm thấy driver SQL Server!", MyDialog.ERROR_DIALOG);
+            System.exit(0);
         } catch (SQLException ex) {
             new MyDialog("Không kết nối được tới CSDL!", MyDialog.ERROR_DIALOG);
             System.exit(0);
         }
-
     }
 
     private void docFileText() {
         // Xử lý đọc file để lấy ra 4 tham số
-        severName = "";
+        serverName = "";
         dbName = "";
         userName = "";
         password = "";
@@ -47,7 +51,7 @@ public class MyConnect {
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
-            severName = br.readLine();
+            serverName = br.readLine();
             dbName = br.readLine();
             userName = br.readLine();
             password = br.readLine();
@@ -57,6 +61,8 @@ public class MyConnect {
             }
 
         } catch (Exception e) {
+            new MyDialog("Lỗi khi đọc file cấu hình!", MyDialog.ERROR_DIALOG);
         }
     }
 }
+

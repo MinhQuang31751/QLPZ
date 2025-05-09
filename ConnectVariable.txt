@@ -1,3 +1,4 @@
-localhost
-quanlypizza
-root
+quang\QLPZ01
+QLPZ1
+sa
+123456
