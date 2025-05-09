@@ -21,10 +21,10 @@ public class SanPhamDAO {
                 sp.setMaSP(rs.getInt(1));
                 sp.setTenSP(rs.getString(2));
                 sp.setMaLoai(rs.getInt(3));
-                sp.setSoLuong(rs.getInt(4));
-                sp.setDonViTinh(rs.getString(5));
-                sp.setHinhAnh(rs.getString(6));
-                sp.setDonGia(rs.getInt(7));
+ //               sp.setSoLuong(rs.getInt(4));
+                sp.setDonViTinh(rs.getString(4));
+                sp.setHinhAnh(rs.getString(5));
+                sp.setDonGia(rs.getInt(6));
 
                 dssp.add(sp);
             }
@@ -47,10 +47,10 @@ public class SanPhamDAO {
                 sp.setMaSP(rs.getInt(1));
                 sp.setTenSP(rs.getString(2));
                 sp.setMaLoai(rs.getInt(3));
-                sp.setSoLuong(rs.getInt(4));
-                sp.setDonViTinh(rs.getString(5));
-                sp.setHinhAnh(rs.getString(6));
-                sp.setDonGia(rs.getInt(7));
+ //               sp.setSoLuong(rs.getInt(4));
+                sp.setDonViTinh(rs.getString(4));
+                sp.setHinhAnh(rs.getString(5));
+                sp.setDonGia(rs.getInt(6));
 
                 return sp;
             }
@@ -73,10 +73,10 @@ public class SanPhamDAO {
                 sp.setMaSP(rs.getInt(1));
                 sp.setTenSP(rs.getString(2));
                 sp.setMaLoai(rs.getInt(3));
-                sp.setSoLuong(rs.getInt(4));
-                sp.setDonViTinh(rs.getString(5));
-                sp.setHinhAnh(rs.getString(6));
-                sp.setDonGia(rs.getInt(7));
+ //               sp.setSoLuong(rs.getInt(4));
+                sp.setDonViTinh(rs.getString(4));
+                sp.setHinhAnh(rs.getString(5));
+                sp.setDonGia(rs.getInt(6));
 
                 dssp.add(sp);
             }
@@ -100,7 +100,7 @@ public class SanPhamDAO {
         }
         return "";
     }
-
+/*
     public void capNhatSoLuongSP(int ma, int soLuongMat) {
         SanPham sp = getSanPham(ma);
         int soLuong = sp.getSoLuong();
@@ -187,4 +187,5 @@ public class SanPhamDAO {
         }
         return false;
     }
+*/
 }

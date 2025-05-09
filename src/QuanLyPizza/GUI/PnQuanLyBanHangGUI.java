@@ -5,6 +5,7 @@ import QuanLyPizza.DTO.HoaDon;
 import QuanLyPizza.DTO.SanPham;
 import QuanLyPizza.DTO.CTHoaDon;
 import QuanLyPizza.DTO.NhanVien;
+import QuanLyPizza.DTO.SanPhamKho;
 import QuanLyPizza.BUS.LoaiBUS;
 import QuanLyPizza.BUS.NhanVienBUS;
 import QuanLyPizza.BUS.HoaDonBUS;
@@ -130,7 +131,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         dtmSanPhamBan.addColumn("Mã SP");
         dtmSanPhamBan.addColumn("Tên SP");
         dtmSanPhamBan.addColumn("Đơn giá");
-        dtmSanPhamBan.addColumn("Còn lại");
+//        dtmSanPhamBan.addColumn("Còn lại");
         dtmSanPhamBan.addColumn("Đơn vị tính");
         dtmSanPhamBan.addColumn("Ảnh");
         tblBanHang = new MyTable(dtmSanPhamBan);
@@ -146,7 +147,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         columnModelBanHang.getColumn(2).setPreferredWidth(82);
         columnModelBanHang.getColumn(3).setPreferredWidth(85);
         columnModelBanHang.getColumn(4).setPreferredWidth(138);
-        columnModelBanHang.getColumn(5).setPreferredWidth(0);
+        columnModelBanHang.getColumn(4).setPreferredWidth(0);
 
         JScrollPane scrTblBanHang = new JScrollPane(tblBanHang);
         //</editor-fold>
@@ -795,7 +796,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         txtTenSPBanHang.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                xuLyTimKiemTheoTen();
+             //   xuLyTimKiemTheoTen();
             }
         });
 
@@ -943,7 +944,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             vec.add(sp.getMaSP());
             vec.add(sp.getTenSP());
             vec.add(dcf.format(sp.getDonGia()));
-            vec.add(dcf.format(sp.getSoLuong()));
+ //           vec.add(dcf.format(sp.getSoLuong()));
             vec.add(sp.getDonViTinh());
             vec.add(sp.getHinhAnh());
             dtmSanPhamBan.addRow(vec);
@@ -1119,7 +1120,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         String ma = tblGioHang.getValueAt(row, 0) + "";
         loadAnh(spBUS.getAnh(ma));
     }
-
+/*
     private void xuLyTimKiemTheoTen() {
         String ten = txtTenSPBanHang.getText().toLowerCase();
         dtmSanPhamBan.setRowCount(0);
@@ -1137,7 +1138,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             dtmSanPhamBan.addRow(vec);
         }
     }
-
+*/
     public void xuLyThoat() {
         int row = tblGioHang.getRowCount();
         if (row > 0) {

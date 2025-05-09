@@ -42,7 +42,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         dtmKho = new DefaultTableModel();
         dtmKho.addColumn("Mã SP");
         dtmKho.addColumn("Tên SP");
-        dtmKho.addColumn("Tồn kho");
+ //       dtmKho.addColumn("Tồn kho");
         tblKho.setModel(dtmKho);
 
         dtmGioNhap = new DefaultTableModel();
@@ -829,7 +829,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
                 Vector vec = new Vector();
                 vec.add(sp.getMaSP());
                 vec.add(sp.getTenSP());
-                vec.add(sp.getSoLuong());
+             //   vec.add(sp.getSoLuong());
                 dtmKho.addRow(vec);
             }
         }
@@ -843,7 +843,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
                 Vector vec = new Vector();
                 vec.add(sp.getMaSP());
                 vec.add(sp.getTenSP());
-                vec.add(sp.getSoLuong());
+            //    vec.add(sp.getSoLuong());
                 dtmKho.addRow(vec);
             }
         }
